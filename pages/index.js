@@ -17,11 +17,6 @@ const CreateProfile = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        // Here, you can submit the formData to your backend to create the user profile.
-        // You can use Axios or any other HTTP library to make a POST request to your API.
-
         try {
             localStorage.setItem("user", JSON.stringify(formData))
         } catch (error) {
@@ -33,45 +28,44 @@ const CreateProfile = () => {
     return (
         <div>
             <h1>Create Your Profile</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="firstName">First Name:</label>
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                {/* Add more input fields for additional profile information */}
-                <div>
-                    <button type="submit">Create Profile</button>
-                </div>
-            </form>
+            <div>
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            {/* Add more input fields for additional profile information */}
+            <div>
+                <button onClick={handleSubmit}>Create Profile</button>
+            </div>
+            <p>If you are not redirected, <a href="/UserProfile">click here</a> to go back to the index page.</p>
         </div>
     );
 };

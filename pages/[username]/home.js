@@ -7,10 +7,13 @@ const UserProfile = () => {
   const { username } = router.query;
   const [user, setUser] = useState(null);
 
+  console.log("username", username)
+
   useEffect(() => {
     if (username) {
       const data = JSON.parse(localStorage.getItem('user'));
 
+      console.log("data", data)
       if (!data) {
         // No user data found in localStorage, redirect to index page
         router.push('/');
@@ -24,11 +27,11 @@ const UserProfile = () => {
     }
   }, [username, router]);
 
-  if (!username || !user) {
+  if (username || user) {
     return (
       <div>
         <p>Loading...</p>
-        <p>If you are not redirected, <a href="/">click here</a> to go back to the index page.</p>
+        <p>If you are not redirected, <a href="/UserProfile">click here</a> to go back to the index page.</p>
       </div>
     );
   }
@@ -42,4 +45,3 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-  

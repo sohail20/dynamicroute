@@ -18,6 +18,8 @@ const CreateProfile = () => {
 
     const handleSubmit = async (e) => {
         try {
+            alert("hello there")
+            console.log("hello there","asddas")
             localStorage.setItem("user", JSON.stringify(formData))
         } catch (error) {
             console.error('Error creating profile:', error);
